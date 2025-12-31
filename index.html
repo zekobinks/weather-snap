@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Snap</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,300,400&display=swap" rel="stylesheet">
+</head>
+
+<body id="body">
+    <div class="glass-container">
+        <header>
+            <form id="search-form">
+                <input type="text" id="city-input" placeholder="Search for a city..." autocomplete="off">
+                <button type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </form>
+        </header>
+
+        <main id="weather-info" class="hidden">
+            <h1 id="city-name">--</h1>
+            <div class="weather-main">
+                <span id="temperature">--°</span>
+                <p id="condition">--</p>
+            </div>
+            <div class="weather-details">
+                <div class="detail-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2" />
+                    </svg>
+                    <span id="wind-speed">-- km/h</span>
+                </div>
+            </div>
+        </main>
+
+        <div id="loading" class="hidden">Loading...</div>
+        <div id="error-message" class="hidden"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

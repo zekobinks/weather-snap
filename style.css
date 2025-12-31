@@ -1,0 +1,215 @@
+:root {
+    --text-color: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --font-family: 'Satoshi', sans-serif;
+
+    --bg-sunny: linear-gradient(135deg, #fce38a 0%, #f38181 100%);
+    --bg-cloudy: linear-gradient(135deg, #bdc3c7 0%, #2c3e50 100%);
+    --bg-rainy: linear-gradient(135deg, #4b79a1 0%, #283e51 100%);
+    --bg-clear: linear-gradient(135deg, #36D1DC 0%, #5B86E5 100%);
+    --bg-snow: linear-gradient(135deg, #E0EAFC 0%, #CFDEF3 100%);
+    --bg-thunder: linear-gradient(135deg, #141E30 0%, #243B55 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-clear);
+    transition: background 0.5s ease;
+    overflow: hidden;
+}
+
+body.sunny {
+    background: var(--bg-sunny);
+}
+
+body.cloudy {
+    background: var(--bg-cloudy);
+}
+
+body.rainy {
+    background: var(--bg-rainy);
+}
+
+body.snow {
+    background: var(--bg-snow);
+}
+
+body.thunder {
+    background: var(--bg-thunder);
+}
+
+body.clear {
+    background: var(--bg-clear);
+}
+
+.glass-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+header {
+    margin-bottom: 2rem;
+}
+
+#search-form {
+    display: flex;
+    gap: 10px;
+}
+
+#city-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+}
+
+#city-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.weather-main {
+    margin-bottom: 2rem;
+}
+
+#city-name {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+#temperature {
+    font-size: 5rem;
+    font-weight: 300;
+    line-height: 1;
+}
+
+#condition {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+    text-transform: capitalize;
+}
+
+.weather-details {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes inputFocus {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-in {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+#city-name.animate-in {
+    animation-delay: 0.1s;
+}
+
+.weather-main.animate-in {
+    animation-delay: 0.2s;
+}
+
+.weather-details.animate-in {
+    animation-delay: 0.3s;
+}
+
+#city-input:focus {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    animation: inputFocus 0.3s ease;
+}
+
+#loading {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spinner 1s ease-in-out infinite;
+    text-indent: -9999px;
+    margin: 20px auto;
+}
+
+#loading.hidden {
+    display: none;
+}
