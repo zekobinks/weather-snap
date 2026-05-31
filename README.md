@@ -1,32 +1,37 @@
-# 🌤️ WeatherSnap
-A minimalist, modern, and visually stunning weather application built with Vanilla JavaScript and CSS. Designed for a premium experience with dynamic glassmorphism and real-time weather data.
+# Weather Snap
 
-✨ **Features**
-🎨 **Glassmorphism Design**: A sleek, translucent interface with modern typography (Satoshi) and smooth micro-animations.
-🌍 **Auto-Location**: Automatically detects your current city using browser geolocation to provide instant local weather.
-🔍 **Global Search**: Search for any city worldwide using the Open-Meteo Geocoding API.
-🌈 **Dynamic Backgrounds**: The background and UI theme change dynamically based on the current weather condition (Sunny, Cloudy, Rainy, Snowy, or Thunderstorm).
-⚡ **Lightweight & Fast**: Built with pure Vanilla JS and CSS for maximum performance—no heavy frameworks required.
-📊 **Detailed Weather**: Displays temperature, weather condition labels, and wind speed.
+A small weather page that runs in the browser. It shows current conditions for your location or for a city you search for. No build step or backend.
 
-🛠️ **Tech Stack**
-- **HTML5**: Semantic and accessible structure.
-- **CSS3**: 
-  - **Glassmorphism**: Advanced backdrop filters and translucent layering.
-  - **Modern Typography**: "Satoshi" font for a premium look.
-  - **Dynamic Theming**: CSS variables and class-based transitions for weather-responsive UI.
-  - **Animations**: Custom keyframe animations for a polished entrance and interactions.
-- **JavaScript (ES6+)**:
-  - **Modular Logic**: Efficient handling of API calls and DOM manipulation.
-  - **APIs**:
-    - [Open-Meteo](https://open-meteo.com/): For precise weather and geocoding data.
-    - [BigDataCloud](https://www.bigdatacloud.com/): For reverse geocoding of user location.
+## Description
 
-🚀 **How to Run**
-1. Clone the repository or download the files.
-2. Open the project folder.
-3. Open `index.html` in your web browser.
-4. *No installation or build steps required!*
+On load, the app asks for geolocation when the browser supports it, resolves your city with reverse geocoding, then fetches forecast data. You can also search by city name. The page shows the city, temperature, a short condition label, and wind speed. The background theme switches with the weather (clear, cloudy, rain, snow, thunder).
 
-🤝 **Contributing**
-Contributions are welcome! If you have ideas for new features or design improvements, feel free to open a Pull Request or report issues.
+### Key Features
+
+*   **Client-side only:** Open `index.html` in a browser; nothing to install or compile.
+*   **Location on start:** Uses `navigator.geolocation` when available; falls back to manual search if permission is denied.
+*   **City search:** Look up any place via the Open-Meteo geocoding API.
+*   **Condition-based UI:** Maps WMO weather codes to labels and CSS theme classes on the page body.
+*   **Glass-style layout:** Translucent card, Satoshi font, light entrance animations on updates.
+
+## Getting Started
+
+### Run locally
+
+1.  Open the project folder.
+2.  Open `index.html` in your web browser.
+
+No Node.js or package manager is required. You need an internet connection: weather and geocoding data come from public APIs.
+
+Allow location access if you want local weather on first load; otherwise use the search field.
+
+## Technical Stack
+
+*   **HTML5** - Search form, weather panel, loading and error states.
+*   **CSS3** - Glassmorphism (backdrop blur), CSS variables, theme classes per condition, keyframe animations.
+*   **JavaScript (ES6+)** - `fetch` for APIs, geolocation, DOM updates.
+
+### External APIs
+
+*   [Open-Meteo](https://open-meteo.com/) - Geocoding search and current weather forecast.
+*   [BigDataCloud](https://www.bigdatacloud.com/) - Reverse geocoding from latitude/longitude (client-side endpoint, no API key in this project).
